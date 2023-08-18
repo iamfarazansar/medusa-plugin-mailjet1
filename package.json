@@ -1,6 +1,6 @@
 {
   "name": "medusa-plugin-mailjet1",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Mailjet transaction emails",
   "author": "Faraz",
   "license": "MIT",
