@@ -79,9 +79,9 @@ class MailJetService extends NotificationService {
       has_attachments,
       attachments,
     } = options;
-    console.log("dynamic_template_data: " + dynamic_template_data);
-    const jsonString = JSON.stringify(dynamic_template_data, null, 2);
-    console.log(jsonString);
+    // console.log("dynamic_template_data: " + dynamic_template_data);
+    // const jsonString = JSON.stringify(dynamic_template_data, null, 2);
+    // console.log(jsonString);
 
     const fromString = from.split(" ");
 
@@ -118,7 +118,7 @@ class MailJetService extends NotificationService {
     }
 
     if (dynamic_template_data) {
-      console.log("Dynamic Template Data Before: " + dynamic_template_data);
+      // console.log("Dynamic Template Data Before: " + dynamic_template_data);
       const nonNull = Object.keys(dynamic_template_data).reduce(
         (result, key) => {
           if (dynamic_template_data[key] !== null) {
@@ -128,7 +128,7 @@ class MailJetService extends NotificationService {
         },
         {}
       );
-      console.log("nonNull value: " + JSON.stringify(nonNull, null, 2));
+      // console.log("nonNull value: " + JSON.stringify(nonNull, null, 2));
       messages[0].Variables = nonNull;
     }
 
@@ -136,7 +136,7 @@ class MailJetService extends NotificationService {
       messages[0].Attachments = attachments;
     }
 
-    console.log("messages[0]", messages[0]);
+    // console.log("messages[0]", messages[0]);
 
     await this.mailjet_
       .post("send", { version: "v3.1" })
@@ -167,10 +167,10 @@ class MailJetService extends NotificationService {
       attachmentGenerator
     );
 
-    console.log("event", event);
-    console.log("eventData", eventData);
-    console.log("data", data);
-    console.log("attachments", attachments);
+    // console.log("event", event);
+    // console.log("eventData", eventData);
+    // console.log("data", data);
+    // console.log("attachments", attachments);
 
     if (data.locale) {
       templateId =
