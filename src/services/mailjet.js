@@ -79,7 +79,7 @@ class MailJetService extends NotificationService {
       has_attachments,
       attachments,
     } = options;
-    console.log("dynamic_template_data: " + dynamic_template_data.data);
+    console.log("dynamic_template_data: " + dynamic_template_data);
     const jsonString = JSON.stringify(dynamic_template_data, null, 2);
     console.log(jsonString);
 
@@ -118,6 +118,7 @@ class MailJetService extends NotificationService {
     }
 
     if (dynamic_template_data) {
+      console.log("Dynamic Template Data Before: " + dynamic_template_data);
       const nonNull = Object.keys(dynamic_template_data).reduce(
         (result, key) => {
           if (dynamic_template_data[key] !== null) {
@@ -127,8 +128,8 @@ class MailJetService extends NotificationService {
         },
         {}
       );
-      console.log("nonNull value: " + JSON.stringify(nonNull));
-      messages[0].Variables = JSON.stringify(nonNull);
+      console.log("nonNull value: " + JSON.stringify(nonNull, null, 2));
+      messages[0].Variables = nonNull;
     }
 
     if (has_attachments && attachments.length) {
