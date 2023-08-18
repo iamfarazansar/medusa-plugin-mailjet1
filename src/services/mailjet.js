@@ -80,6 +80,9 @@ class MailJetService extends NotificationService {
       attachments,
     } = options;
     console.log("dynamic_template_data: " + dynamic_template_data.data);
+    const jsonString = JSON.stringify(dynamic_template_data, null, 2);
+    console.log(jsonString);
+
     const fromString = from.split(" ");
 
     const messages = [
