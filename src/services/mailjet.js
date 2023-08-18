@@ -120,6 +120,7 @@ class MailJetService extends NotificationService {
           delete dynamic_template_data[key];
         }
       });
+      console.log("nonNull value: " + nonNull);
       messages[0].Variables = nonNull;
     }
 
