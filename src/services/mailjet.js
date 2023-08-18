@@ -118,11 +118,15 @@ class MailJetService extends NotificationService {
     }
 
     if (dynamic_template_data) {
-      const nonNull = Object.keys(dynamic_template_data).forEach((key) => {
-        if (dynamic_template_data[key] === null) {
-          delete dynamic_template_data[key];
-        }
-      });
+      const nonNull = Object.keys(dynamic_template_data).reduce(
+        (result, key) => {
+          if (dynamic_template_data[key] !== null) {
+            result[key] = dynamic_template_data[key];
+          }
+          return result;
+        },
+        {}
+      );
       console.log("nonNull value: " + JSON.stringify(nonNull));
       messages[0].Variables = JSON.stringify(nonNull);
     }
