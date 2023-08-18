@@ -123,8 +123,8 @@ class MailJetService extends NotificationService {
           delete dynamic_template_data[key];
         }
       });
-      console.log("nonNull value: " + nonNull);
-      messages[0].Variables = nonNull;
+      console.log("nonNull value: " + JSON.stringify(nonNull));
+      messages[0].Variables = JSON.stringify(nonNull);
     }
 
     if (has_attachments && attachments.length) {
